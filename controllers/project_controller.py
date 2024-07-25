@@ -15,3 +15,19 @@ def create_project(project: ProjectRequest, db: Session = Depends(get_db)):
     db_user = project_service.create_project(db, project.name)
     logger.info(f"Project created with ID: {db_user.id}")
     return db_user
+
+
+@router.get("/projects/", status_code=status.HTTP_200_OK)
+def get_all_projects(db: Session = Depends(get_db)):
+    logger.info(f"Fetching all projects in controller")
+    projects = project_service.get_all_projects(db)
+    logger.info(f"Number of projects retrieved: {len(projects)}")
+    return projects
+
+
+@router.delete("/projects/{project_id}", status_code=status.HTTP_200_OK)
+def delete_project(project_id: int, db: Session = Depends(get_db)):
+    logger.info(f"Deleting project with ID: {project_id}")
+    result = project_service.delete_project(db, project_id)
+    logger.info(f"Project with ID: {project_id} deleted successfully")
+    return result

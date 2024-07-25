@@ -16,3 +16,11 @@ def create_team(team: TeamRequest, db: Session = Depends(get_db)):
     logger.info(f"Team created with ID: {db_team.id}")
     return db_team
 
+
+@router.get("/teams/", status_code=status.HTTP_200_OK)
+def get_all_teams(db: Session = Depends(get_db)):
+    logger.info(f"Fetching all teams in controller")
+    teams = team_service.get_all_teams(db)
+    logger.info(f"Number of teams retrieved: {len(teams)}")
+    return teams
+

@@ -4,7 +4,7 @@ from loguru import logger
 
 URL_DATABASE = "postgresql://postgres:abhi@localhost/crud"
 
-engine = create_engine(URL_DATABASE, pool_size=10 ,)
+engine = create_engine(URL_DATABASE)
 SessionMaker = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 

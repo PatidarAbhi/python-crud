@@ -11,10 +11,6 @@ class UserCreate(UserBase):
     password: str
 
 
-class UserInDB(UserBase):
-    hashed_password: str
-
-
 class PostBase(BaseModel):
     title: str
     content: str
@@ -54,3 +50,8 @@ class ProjectRequest(BaseModel):
 class TeamRequest(BaseModel):
     name: str
     project_ids: Optional[List[int]] = []
+
+
+class PassportRequest(BaseModel):
+    passport_number: str
+    person_id: int

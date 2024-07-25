@@ -1,7 +1,6 @@
 from sqlalchemy import text, asc, desc
 from sqlalchemy.orm import Session, joinedload
 from models.user import User
-from payload.user_payload import UsersNameResponse
 
 
 def get_user(db: Session, user_id: int):
