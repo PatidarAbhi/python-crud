@@ -1,0 +1,2 @@
+2024-07-24 14:48:24.221 | INFO     | service.user_service:get_user:10 - Fetching user with ID: 1
+2024-07-24 14:48:24.226 | INFO     | service.user_service:get_user:15 - User found with ID: 1: test_user

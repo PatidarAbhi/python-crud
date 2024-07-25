@@ -1,0 +1,2 @@
+2024-07-24 14:33:41.815 | INFO     | service.user_service:get_user:10 - Fetching user with ID: 1
+2024-07-24 14:33:41.831 | INFO     | service.user_service:get_user:15 - User found with ID: 1: <MagicMock name='mock.query().filter().first().username' id='2258043413872'>
