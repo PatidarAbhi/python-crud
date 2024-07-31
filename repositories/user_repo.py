@@ -34,7 +34,6 @@ def get_by_name(db: Session, username: str):
     return None
 
 
-#get users by pagination
 def get_all_users(db: Session, skip: int = 0, limit: int = 4, order_by: str = 'id', order: str = 'dsc'):
     query = db.query(User)
 
@@ -52,3 +51,9 @@ def delete_user(db: Session, user_id: int):
     result = db.query(User).filter(User.id == user_id).delete(synchronize_session=False)
     db.commit()
     return result
+
+
+def update_user(db: Session, user: User):
+    db.commit()
+    db.refresh(user)
+    return user
