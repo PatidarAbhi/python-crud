@@ -3,12 +3,9 @@ from typing import Optional, List
 from pydantic import BaseModel
 
 
-class UserBase(BaseModel):
-    username: str
-
-
-class UserCreate(UserBase):
+class UserRequest(BaseModel):
     password: str
+    username: str
 
 
 class PostBase(BaseModel):
@@ -55,3 +52,9 @@ class TeamRequest(BaseModel):
 class PassportRequest(BaseModel):
     passport_number: str
     person_id: int
+
+
+class UpdatePostPayload(BaseModel):
+    title: str
+    content: str
+

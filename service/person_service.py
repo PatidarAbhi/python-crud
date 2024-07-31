@@ -14,9 +14,6 @@ def create_person(db: Session, name: str):
 def get_all_persons(db: Session):
     logger.info("Fetching all persons")
     persons = person_repo.get_all_persons(db)
-    if not persons:
-        logger.error("No Person found")
-        raise NotFoundException(status_code=404, detail=f"Persons not found")
     return persons
 
 

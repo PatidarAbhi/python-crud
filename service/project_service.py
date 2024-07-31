@@ -14,9 +14,6 @@ def create_project(db: Session, name: str):
 def get_all_projects(db: Session):
     logger.info("Fetching all projects in service ")
     projects = project_repo.get_all_projects(db)
-    if not projects:
-        logger.error("No projects found")
-        raise NotFoundException(status_code=404, detail=f"Projects not found")
     return projects
 
 

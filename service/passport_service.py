@@ -14,9 +14,6 @@ def create_passport(db: Session, number: str, person_id: int ):
 def get_all_passports(db: Session):
     logger.info("Fetching all passports")
     passports = passport_repo.get_all_passports(db)
-    if not passports:
-        logger.error("No Passports found")
-        raise NotFoundException(status_code=404, detail=f"Passports not found")
     return passports
 
 

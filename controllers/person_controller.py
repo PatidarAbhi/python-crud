@@ -3,14 +3,14 @@ from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 from database.db_connection import get_db
 from service import person_service
-from payload.user_payload import UserBase
+from payload.user_payload import UserRequest
 from loguru import logger
 
 router = APIRouter()
 
 
 @router.post("/persons/", status_code=status.HTTP_201_CREATED)
-def create_person(person: UserBase, db: Session = Depends(get_db)):
+def create_person(person: UserRequest, db: Session = Depends(get_db)):
     logger.info(f"Creating person with name: {person.username}")
     person = person_service.create_person(db, person.username)
     logger.info(f"Person created with ID: {person.id}")
